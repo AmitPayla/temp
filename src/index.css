@@ -1,0 +1,138 @@
+
+.pagination {
+    display: flex;
+    border:  1px solid red;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pagination-button{
+    padding: 0px 21px;
+    border-radius: 41px !important;
+}
+
+
+.modals{
+    width: 800px;
+    height: 620px;
+    margin: auto;
+    background-color: rgb(239, 242, 241);
+    border-radius: 24px;
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: row;
+}
+
+.trip-planning-box{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 90px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.trip-planning-box-select{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 90px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 2px solid #0078A2;
+    color: #0078A2;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.modal-text{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(51, 51, 51);
+
+}
+
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiFilledInput-root"]{
+    padding: 0px !important;
+    background-color: #fff !important;
+    border-radius: 20px;
+    border: none !important;
+    border-bottom: none !important;
+    padding-left: 28px !important;
+
+}
+
+.modal-last-input{
+    border :1px solid rgb(239, 242, 241);
+    border-radius: 20px;
+    /* box-shadow: 4px 4px 14px -3px grey; */
+    padding: 5px 10px 5px 37px;
+    margin-bottom: 20px;
+}
+
+.MuiFilledInput-underline:before{
+    border-bottom: none !important;
+}
+
+.MuiFilledInput-underline:after{
+    border-bottom: none !important;
+}
+
+.person-travelling-selector{
+    padding: 6px 14px;
+    width: 65%;
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+}
+.ant-picker-dropdown {
+    position: absolute;
+    top: 42px;
+    left: 12px;
+    z-index: 9999 !important;
+
+}
+
+.travelling-people-input{
+    border: none;
+    width: 25%;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding: 3px 16px;
+    padding-right: 10px;
+    box-shadow: 1px 1px 3px -3px;
+}
+
+.travelling-people-input::placeholder{
+    font-size: 11px;
+}
+
+.date-range-picker{
+    border: none;
+    border-radius: 20px;
+    width: 60%;
+    font-size: 13px;
+    padding: 11px 22px;
+    margin-bottom: 15px;
+}
+
+.team-img{
+    width: 412px;
+    height: 387px;
+    object-fit: cover
+}
