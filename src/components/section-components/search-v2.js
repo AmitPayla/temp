@@ -46,6 +46,7 @@ class SearachV2 extends Component {
       fromDate: "",
       destinations: [],
       value: "",
+      errors: "",
     };
   }
 
@@ -88,7 +89,28 @@ class SearachV2 extends Component {
       toDate,
       destinations,
     } = this.state;
-    // destinations.forEach()
+    if (
+      destinations.length < 1 ||
+      adults.length < 1 ||
+      childeren.length < 1 ||
+      infant.length < 1 ||
+      email.length < 1 ||
+      name < 1 ||
+      phoneNumber.length < 10 ||
+      tripType.length < 1 ||
+      fromDate.length < 1 ||
+      toDate.length < 1
+    ) {
+      this.setState({
+        error : true
+      })
+      return
+    }
+    else{
+      this.setState({
+        error : false
+      })
+    }
     const data = {
       destination: [...destinations],
       toDate: toDate.toString(),
@@ -650,6 +672,8 @@ class SearachV2 extends Component {
                       </span>
                     </div>
 
+                    
+
                     <span
                       style={{
                         position: "absolute",
@@ -675,6 +699,13 @@ class SearachV2 extends Component {
                       className="modal-last-input"
                       onChange={this.handleChange}
                     />
+                    {
+                      this.state.error &&
+                      <Alert severity="error">
+  <AlertTitle>Error</AlertTitle>
+  Please fill all the required details.
+</Alert>
+                    }
                   </div>
                 ) : (
                   ""
