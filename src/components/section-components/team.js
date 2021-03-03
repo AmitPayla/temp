@@ -63,10 +63,40 @@ class Team extends Component {
 			        <div className="col-lg-3 col-sm-6">
 			          <div className="single-team text-center">
 			            <div className="thumb">
-			              <img className="team-img" src={publicUrl+"assets/img/mukul.jpg"} alt="team" />
+			              <img className="team-img" src={publicUrl+"assets/img/tarun.jpg"} alt="team" />
 			            </div>
-			            <h3 className="name"><a href="#">Mukul Sagwal</a></h3>
-			            <span>Graphic Designer</span>
+			            <h3 className="name"><a href="#"> Tarun Aggarwal</a></h3>
+			            <span>Sales VP</span>
+			            <ul className="team-social">
+			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
+			              <li><a href="#"><i className="fa fa-twitter" /></a></li>
+			              <li><a href="#"><i className="fa fa-instagram" /></a></li>
+			              <li><a href="#"><i className="fa fa-linkedin" /></a></li>
+			            </ul>
+			          </div>
+			        </div>
+			        <div className="col-lg-3 col-sm-6">
+			          <div className="single-team text-center">
+			            <div className="thumb">
+			              <img className="team-img" src={publicUrl+"assets/img/team/4.png"} alt="team" />
+			            </div>
+			            <h3 className="name"><a href="#">Tulip Chatterjee</a></h3>
+			            <span>Sales Team Lead</span>
+			            <ul className="team-social">
+			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
+			              <li><a href="#"><i className="fa fa-twitter" /></a></li>
+			              <li><a href="#"><i className="fa fa-instagram" /></a></li>
+			              <li><a href="#"><i className="fa fa-linkedin" /></a></li>
+			            </ul>
+			          </div>
+			        </div>
+			        <div className="col-lg-3 col-sm-6">
+			          <div className="single-team text-center">
+			            <div className="thumb">
+			              <img className="team-img" src={publicUrl+"assets/img/shivikia-min.jpg"} alt="team" />
+			            </div>
+			            <h3 className="name"><a href="#">Shivika Garg</a></h3>
+			            <span>Marketing Head</span>
 			            <ul className="team-social">
 			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
 			              <li><a href="#"><i className="fa fa-twitter" /></a></li>
@@ -90,22 +120,7 @@ class Team extends Component {
 			            </ul>
 			          </div>
 			        </div>
-			        <div className="col-lg-3 col-sm-6">
-			          <div className="single-team text-center">
-			            <div className="thumb">
-			              <img className="team-img" src={publicUrl+"assets/img/shivika.jpg"} alt="team" />
-			            </div>
-			            <h3 className="name"><a href="#">Shivika Garg</a></h3>
-			            <span>Marketing Head</span>
-			            <ul className="team-social">
-			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
-			              <li><a href="#"><i className="fa fa-twitter" /></a></li>
-			              <li><a href="#"><i className="fa fa-instagram" /></a></li>
-			              <li><a href="#"><i className="fa fa-linkedin" /></a></li>
-			            </ul>
-			          </div>
-			        </div>
-			        <div className="col-lg-3 col-sm-6">
+					<div className="col-lg-3 col-sm-6">
 			          <div className="single-team text-center">
 			            <div className="thumb">
 			              <img className="team-img" src={publicUrl+"assets/img/hardik.jpg"} alt="team" />
@@ -123,25 +138,10 @@ class Team extends Component {
 					<div className="col-lg-3 col-sm-6">
 			          <div className="single-team text-center">
 			            <div className="thumb">
-			              <img className="team-img" src={publicUrl+"assets/img/tarun.jpg"} alt="team" />
+			              <img className="team-img" src={publicUrl+"assets/img/mukul.jpg"} alt="team" />
 			            </div>
-			            <h3 className="name"><a href="#">Tarun Aggarwal</a></h3>
-			            <span>Sales VP</span>
-			            <ul className="team-social">
-			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
-			              <li><a href="#"><i className="fa fa-twitter" /></a></li>
-			              <li><a href="#"><i className="fa fa-instagram" /></a></li>
-			              <li><a href="#"><i className="fa fa-linkedin" /></a></li>
-			            </ul>
-			          </div>
-			        </div>
-					<div className="col-lg-3 col-sm-6">
-			          <div className="single-team text-center">
-			            <div className="thumb">
-			              <img className="team-img" src={publicUrl+"assets/img/team/4.png"} alt="team" />
-			            </div>
-			            <h3 className="name"><a href="#">Tulip Chatterjee</a></h3>
-			            <span>Sales Team Lead</span>
+			            <h3 className="name"><a href="#">Mukul Sagwal</a></h3>
+			            <span>Graphic Designer</span>
 			            <ul className="team-social">
 			              <li><a href="#"><i className="fa fa-facebook" /></a></li>
 			              <li><a href="#"><i className="fa fa-twitter" /></a></li>

@@ -34,11 +34,12 @@
 
             //back to top show/hide
             var ScrollTop = $('.back-to-top');
-            if ($(window).scrollTop() > 1000) {
-               ScrollTop.fadeIn(1000);
-            } else {
-               ScrollTop.fadeOut(1000);
-            }
+            // if ($(window).scrollTop() > 1000) {
+            //    ScrollTop.fadeIn(1000);
+            // } else {
+            //    ScrollTop.fadeOut(1000);
+            // }
+
         });
 
 
@@ -756,11 +757,12 @@
     /*------------------------------------------------------
         back to top
     -------------------------------------------------------*/
-    $(document).on('click', '.back-to-top', function () {
-        $("html,body").animate({
-            scrollTop: 0
-        }, 2000);
-    });
+    // $(document).on('click', '.back-to-top', function () {
+    //     $("html,body").animate({
+    //         scrollTop: 0
+    //     }, 2000);
+    //     window.location.href
+    // });
 
     /* -------------------------------------------------------------
         inner linking js

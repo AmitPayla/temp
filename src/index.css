@@ -136,3 +136,23 @@
     height: 387px;
     object-fit: cover
 }
+
+li.MuiTimelineItem-root.MuiTimelineItem-missingOppositeContent::before{
+    display: none !important;
+}
+
+.MuiAccordion-rounded:last-child{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.timeline-header{
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgb(0, 120, 162);
+    font-weight: 600;
+}
+
+.MuiAccordion-root:before{
+    background-color: #fff !important;
+}

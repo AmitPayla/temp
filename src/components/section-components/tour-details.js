@@ -9,7 +9,15 @@ import parse from 'html-react-parser';
 import { toast } from 'react-toastify';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import NokuMaldives from "../destination-Noku-Maldives";
+import Thulagiri from "../destination-Thulhagiri-Island.js";
+import Brennia from "../destination-Brennia-Kottefaru.js";
+import Furaveri from "../destination-Furaveri-Island.js";
+import SunSiyam from "../destination-Sun-Siyam-Olhuveli.js";
+import Movenpick from "../destination-Movenpick-Maldives.js";
+import Cocoon from "../destination-Cocoon-Maldives.js";
+import HardRock from "../destination-Hard-Rock-Maldives.js";
+import DestinationImages from "../destination-page-image-container.js"
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
@@ -29,6 +37,7 @@ function loadScript(src) {
 
 function TourDetails(){
    let query = useQuery();
+   
    var dateFormat = require("dateformat");
    const[dest, setDest] = useState({})
 
@@ -43,19 +52,20 @@ function TourDetails(){
    const [errors, setErrors] = useState({});
    const [rating, setRating] = useState(0);
    const [comments, setComments] = useState("");
-
    const [razorpayError, setRazorpayError] = useState(false);
    const [paymentDetail, setPaymentDetail] = useState(null);
    const [loadingPaymentBill, setLoadingPaymentBill] = useState(false);
-
+   const [ destinationwindow , setDestinationwindow ] = useState("")
       useEffect(() => {
           window.scrollTo(0, 0);
-
           const $ = window.$;
           var preLoder = $("#preloader");
           preLoder.fadeIn(0);
-
           let id = query.get("id");
+          let destinationwindow = query.get("dest")
+
+          setDestinationwindow(destinationwindow);  
+
           axios.get(process.env.REACT_APP_CLIENT_ID+'destinations/'+id)
               .then(response => {
                 console.log(response);
@@ -399,226 +409,34 @@ function TourDetails(){
     let publicUrl = process.env.PUBLIC_URL+'/'
     /* let locationUrl = dest.location ? "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q="+dest.location.lat+",%20"+dest.location.long+"+(flysquare)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
      : "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=25.3034496,%2082.99151359999999+(flysquare)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"; */
-     
+
+
     return (	<div className="tour-details-area mg-top--70">
               <div className="tour-details-gallery">
                 <div className="container-bg bg-dark-blue">
-                  <div className="container">
-                    <div className="gallery-filter-area row">
-                      <div className="gallery-sizer col-1" />
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-md-5 col-sm-6 mb-10">
-                        <div className="tp-gallery-item-img">
-                          <div className="thumbnails">
-                            <img src={publicUrl+"assets/img/tour-details/1.png"} alt="image" />
-                            <div className="video-popup-btn">
-                              <a href="https://www.youtube.com/watch?v=c7XEhXZ_rsk" className="video-play-btn mfp-iframe" tabIndex={0}><i className="fa fa-play" /></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-md-3 col-sm-6">
-                        <div className="tp-gallery-item-img">
-                          <a href="#" data-effect="mfp-zoom-in">
-                            <img src={publicUrl+"assets/img/tour-details/2.png"} alt="image" />
-                          </a>
-                        </div>
-                      </div>
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
-                        <div className="tp-gallery-item-img">
-                          <a href="#" data-effect="mfp-zoom-in">
-                            <img src={publicUrl+"assets/img/tour-details/3.png"} alt="image" />
-                          </a>
-                        </div>
-                      </div>
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
-                        <div className="tp-gallery-item-img">
-                          <a href="#" data-effect="mfp-zoom-in">
-                            <img src={publicUrl+"assets/img/tour-details/4.png"} alt="image" />
-                          </a>
-                        </div>
-                      </div>
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
-                        <div className="tp-gallery-item-img">
-                          <a href="#" data-effect="mfp-zoom-in">
-                            <img src={publicUrl+"assets/img/tour-details/5.png"} alt="image" />
-                          </a>
-                        </div>
-                      </div>
-                      {/* gallery-item */}
-                      <div className="tp-gallery-item col-lg-2 col-md-4 col-sm-6">
-                        <div className="tp-gallery-item-img">
-                          <a href="#" data-effect="mfp-zoom-in">
-                            <img src={publicUrl+"assets/img/tour-details/6.png"} alt="image" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-xl-3 col-lg-4">
-                        <div className="details">
-                          <p className="location mb-0"><i className="fa fa-map-marker" />{dest.locationName}</p>
-                          <h4 className="title">{dest.name}</h4>
-                          <p className="content">{dest.paxDay} days {dest.paxPerson} person</p>
-                          <div className="tp-review-meta">
-                           {/*  <i className="ic-yellow fa fa-star" />
-                            <i className="ic-yellow fa fa-star" />
-                            <i className="ic-yellow fa fa-star" />
-                            <i className="ic-yellow fa fa-star" />
-                            <i className="fa fa-star" /> */}
-                            <i className={"fa fa-star " + (dest.ratingsAverage >= 1 ? 'ic-yellow' : 'text-white')}/>
-                            <i className={"fa fa-star " + (dest.ratingsAverage >= 2 ? 'ic-yellow' : 'text-white')}/>
-                            <i className={"fa fa-star " + (dest.ratingsAverage >= 3 ? 'ic-yellow' : 'text-white')}/>
-                    	      <i className={"fa fa-star " + (dest.ratingsAverage >= 4 ? 'ic-yellow' : 'text-white')}/>
-                            <i className={"fa fa-star " + (dest.ratingsAverage >= 5 ? 'ic-yellow' : 'text-white')}/>
-                            <span>{dest.ratingsAverage}</span>
-                          </div>
-                          <div className="all-tags">
-                            <a href="#">Adventures</a>
-                            <a href="#">Local special ties</a>
-                            <a href="#">Natural</a>
-                            <a href="#">Travel</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-xl-9 col-lg-8">
-                        <div className="book-list-warp">
-                          <p className="book-list-content">Just booked! Get your spot before it's too late.</p>
-                          <div className="tp-price-meta">
-                            <p>Price</p>
-                            <h2>₹{dest.price}</h2>
-                          </div>
-                        </div>
-                        <ul className="tp-list-meta border-tp-solid">
-                          <li className="ml-0"><i className="fa fa-calendar-o" /> 8 Oct</li>
-                          <li><i className="fa fa-clock-o" />{dest.paxDay} Days</li>
-                          <li><i className="fa fa-users" />{dest.paxPerson} Person</li>
-                          <li><i className="fa fa-snowflake-o" /> Relaxing</li>
-                          <li><i className="fa fa-star" /> {dest.ratingsAverage}</li>
-                        </ul>
-                      </div>   
-                    </div>
-                  </div>
+                  <DestinationImages destinationwindow = {destinationwindow} dest={dest} />
                 </div>
               </div>
-              <div className="container">
+              <div className="container sticky" >
                 <div className="row">
                   <div className="col-lg-8">
                     <div className="tour-details-wrap">
-                      <h4 className="single-page-small-title">Write A Review</h4>
-                      <p>From its distinct half-hour time zone to its occasional June snowshower, Newfoundland runs on its own time. By August, the summer crowds have dwindled, berries hang ripe and heavy on their stems, and the landscape is ablaze with wildflowers. Join us at the peak of Newfoundland’s late summer season as we wind our way through the famously Celtic stretch of coastline known as the Irish Loop, exploring its unique history, folklore, cuisine, and breathtaking seaside scenery. We’ll enjoy dinners made from freshly foraged ingredients on a quiet dock, chat with a boat-builder in the midst of making a vessel, and learn how to craft heritage cheese from local experts while surrounded by an adorable, bleating tribe of tiny baby goats. As we make our way along the Loop, we’ll encounter countless characters, places, and stories that give this corner of the island its charm, tenacity, and unique flair.</p>
-                      <p> This trip is offered by Atlas Obscura. Once you've reserved your spot, our team will be in touch to help you prepare for the trip. Please note that flights to and from St. John's are not included in the trip cost. This trip is limited by 12 travelers.</p>
-                      <div className="package-included-area">
-                        <h4 className="single-page-small-title">Included</h4>
-                        <span className="row">
-                            {
-                            dest && dest.includedInPackage && dest.includedInPackage.length > 0 ?
-                            dest.includedInPackage.map((pack, index) => 
-                              <React.Fragment key={pack._id}>
-                              {
-                                pack.isChecked &&
-                                <div className="col-xl-4 col-sm-6" >
-                                <div className="single-package-included">
-                                  <img src={publicUrl+"assets/img/icons/15.png"} alt="icons" />
-                                  <h6>{pack.name}</h6>
-                                  <p>{pack.fieldValue}</p>
-                                </div>
-                                </div>
-                              }
-                              </React.Fragment>
-                            ) 
-                            :
-                            null
-                            }  
-                        </span>
-                      </div>
-                      <div className="package-included-location">
-                        <h4 className="single-page-small-title">Your Itinerary</h4>
-                        <div className="row">
-                        {
-                            dest && dest.itenary && dest.itenary.length > 0 ?
-                            dest.itenary.map((itenary, index) => 
-                            <React.Fragment key={itenary._id}>
-                              {
-                                <div className="col-lg-4 col-md-4" >
-                                <div className="single-blog">
-                                  <div className="p-list">
-                                    <div className="list">{index + 1}</div>
-                                    <p>Day {index + 1}</p>
-                                  </div>
-                                  <div className="thumb">
-                                    <img src={publicUrl+"assets/img/blog/8.png"} alt="blog" />
-                                  </div>
-                                  <div className="single-blog-details">
-                                    <h4 className="title">{itenary.title}</h4>
-                                    <p className="content">{itenary.description}</p>
-                                   {/*  <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a> */}
-                                  </div>
-                                </div>
-                              </div>
-                              }
-                              </React.Fragment>
-                            ) 
-                            :
-                            <p>No Itenary</p>
-                        }  
-
-                          
-                          {/* <div className="col-lg-4 col-md-4">
-                            <div className="single-blog">
-                              <div className="p-list">
-                                <div className="list">2</div>
-                                <p>Day 2</p>
-                              </div>
-                              <div className="thumb">
-                                <img src={publicUrl+"assets/img/blog/1.png"} alt="blog" />
-                              </div>
-                              <div className="single-blog-details">
-                                <h4 className="title">Relaxation &amp; Exploration</h4>
-                                <p className="content">After a welcome drink, we'll stroll into town and get to know each other over a hyper-local “nose-to-tail” dinner. Show more</p>
-                                <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
-                              </div>
-                            </div>
-                          </div> */}
-                          {/* <div className="col-lg-4 col-md-4">
-                            <div className="single-blog single-blog-after-none">
-                              <div className="p-list">
-                                <div className="list">3</div>
-                                <p>Day 3</p>
-                              </div>
-                              <div className="thumb">
-                                <img src={publicUrl+"assets/img/blog/9.png"} alt="blog" />
-                              </div>
-                              <div className="single-blog-details">
-                                <h4 className="title">Farewell &amp; Departure</h4>
-                                <p className="content">After a welcome drink, we'll stroll into town and get to know each other over a hyper-local “nose-to-tail” dinner. Show more</p>
-                                <a className="btn-read-more" href="#"><span>Show More<i className="la la-arrow-right" /></span></a>
-                              </div>
-                            </div>
-                          </div> */}
-                        </div>
-                      </div>
-                      <div className="host-area">
-                        <div className="single-host-wrap text-center">
-                          <div className="thumb">
-                            <img src={publicUrl+"assets/img/Flysquare_Logo_icon.png"} alt="img"/>
-                          </div>
-                          <h4>Mike At Atlas Obscura Trips</h4>
-                          <p>I'm your Atlas Obscura Trip Coordinator. Since 2016, Atlas Obscura has been offering unusual trips to the world’s most extraordinary places. Our itineraries are developed in close collaboration with the locals and insiders who host them—our global community of explorers</p>
-                          <p> Felicity Roberts will be leading your trip. A rural Newfoundlander, certified herbalist, farmer, writer, wild food advocate, and self relic, Felicity is most on the barrens cutting heather to dye wool or hanging off the edge</p>
-                          <a className="btn btn-yellow" href="#">Contact Host</a>
-                        </div>
-                      </div>
-                      <div className="service-location-map">
-                        <h4 className="single-page-small-title">Service Location</h4>
-                        <div className="service-location-map">
-                          <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=25.3034496,%2082.99151359999999+(flysquare)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" />
-                        </div>
-                      </div>
+                      {destinationwindow == 'noku' ? 
+                     <NokuMaldives dest = {dest}/>
+                     :   destinationwindow == "thulhagiri" ?
+                     <Thulagiri dest = {dest}/>
+                     :   destinationwindow == "brennia" ?
+                     <Brennia dest = {dest}/>
+                     :   destinationwindow == "furaveri" ?
+                     <Furaveri dest = {dest}/>
+                     :   destinationwindow == "sunsiya" ?
+                     <SunSiyam dest = {dest}/>
+                     :   destinationwindow == "movenpick" ?
+                     <Movenpick dest = {dest}/>
+                     :   destinationwindow == "cocoon" ?
+                     <Cocoon dest = {dest}/>
+                     :  <HardRock dest = {dest}/>
+                    }
                       <div className="comments-area tour-details-review-area">
                         <h4 className="comments-title">Reviews</h4>
                         <ul className="comment-list mb-0">
@@ -645,29 +463,9 @@ function TourDetails(){
                             </div>
                           </li>
                             ): null}
-                          {/* <li>
-                            <div className="single-comment-wrap">
-                              <div className="thumb">
-                                <img src="assets/img/review.png" alt="img" />
-                              </div>
-                              <div className="content">
-                                <h4 className="title">Eliza Jordan</h4>
-                                <span className="date">17 SEP 2019</span>
-                                <div className="tp-review-meta">
-                                  <i className="ic-yellow fa fa-star" />
-                                  <i className="ic-yellow fa fa-star" />
-                                  <i className="ic-yellow fa fa-star" />
-                                  <i className="ic-yellow fa fa-star" />
-                                  <i className="ic-yellow fa fa-star" />
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
-                              </div>
-                            </div>
-                          </li> */}
+                       
                         </ul>
-                       {/*  <div className="btn-wrapper text-right mt-3">
-                          <a className="btn-read-more" href="#"><span>More Review<i className="la la-arrow-right" /></span></a>
-                        </div> */}
+                      
                       </div>
                       <div className="location-review-area">
                         <form className="tp-form-wrap bg-gray tp-form-wrap-one">
@@ -689,18 +487,7 @@ function TourDetails(){
                                   onClick={() => setRating(5)}/>
                               </div>
                             </div>
-                            {/* <div className="col-lg-6">
-                              <label className="single-input-wrap">
-                                <span className="single-input-title">Name</span>
-                                <input type="text" />
-                              </label>
-                            </div>
-                            <div className="col-lg-6">
-                              <label className="single-input-wrap">
-                                <span className="single-input-title">Email</span>
-                                <input type="text" />
-                              </label>
-                            </div> */}
+                           
                             <div className="col-lg-12">
                               <label className="single-input-wrap">
                                 <span className="single-input-title">Comments</span>
@@ -715,7 +502,7 @@ function TourDetails(){
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4">
+                  <div className="col-lg-4" >
                     <form onSubmit={handleSubmit}>
                     <div className="sidebar-area sidebar-area-4">
                       <div className="widget tour-list-widget">
@@ -786,9 +573,9 @@ function TourDetails(){
                           </div>
                         </div>
                       </div>
-                      <div className="widget_ads">
+                      {/* <div className="widget_ads">
                         <a href="#"><img className="w-100" src={publicUrl+"assets/img/others/01.png" }alt="img" /></a>
-                      </div>
+                      </div> */}
                     </div>
                     </form>
                   </div>
